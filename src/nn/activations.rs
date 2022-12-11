@@ -34,4 +34,3 @@ pub const RELU: Activation = Activation {
 // pub const SOFTMAX: Activation = Activation {
 // 	function: &|
 // }
-

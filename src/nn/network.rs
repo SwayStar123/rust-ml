@@ -71,7 +71,7 @@ impl Network<'_> {
 			panic!("Invalid targets length");
 		}
 
-		let mut parsed = Matrix::from(vec![outputs.clone()]);
+		let parsed = Matrix::from(vec![outputs.clone()]);
 		// let mut errors = Matrix::from(vec![targets]).subtract(&parsed).transpose();
 		let mut errors = Matrix::from(vec![loss_single(outputs, targets)]).transpose();
 		let mut gradients = parsed.map(self.activation.derivative).transpose();
