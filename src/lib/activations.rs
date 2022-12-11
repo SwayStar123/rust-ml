@@ -28,3 +28,10 @@ pub const RELU: Activation = Activation {
 	function: &|x| x.max(0.0),
 	derivative: &|x| if x > 0.0 { 1.0 } else { 0.0 },
 };
+
+// fn softmax()
+
+// pub const SOFTMAX: Activation = Activation {
+// 	function: &|
+// }
+

@@ -71,8 +71,9 @@ impl Network<'_> {
 			panic!("Invalid targets length");
 		}
 
-		let mut parsed = Matrix::from(vec![outputs]);
-		let mut errors = Matrix::from(vec![targets]).subtract(&parsed).transpose();
+		let mut parsed = Matrix::from(vec![outputs.clone()]);
+		// let mut errors = Matrix::from(vec![targets]).subtract(&parsed).transpose();
+		let mut errors = Matrix::from(vec![loss_single(outputs, targets)]).transpose();
 		let mut gradients = parsed.map(self.activation.derivative).transpose();
 
 		for i in (0..self.layers.len() - 1).rev() {
@@ -97,7 +98,7 @@ impl Network<'_> {
 				i.truncate(50);
 				let mut t = targets.clone();
 				t.truncate(50);
-				println!("Accuracy: {}", accuracy(self, i, t))
+				println!("Loss: {}", loss(self, i, t))
 			}
 			for j in 0..inputs.len() {
 				let outputs = self.feed_forward(inputs[j].clone());
@@ -139,14 +140,50 @@ impl Network<'_> {
 	}
 }
 
-// find accuracy as within 0.1 of the target
-pub fn accuracy(network: &mut Network, inputs: Vec<Vec<f64>>, targets: Vec<Vec<f64>>) -> f64 {
-    let mut correct = 0;
-    for i in 0..inputs.len() {
-        let output = network.feed_forward(inputs[i].to_owned());
-        if (output[0] - targets[i][0]).abs() < 0.1 {
-            correct += 1;
-        }
-    }
-    correct as f64 / inputs.len() as f64
+// // find accuracy as within 0.05 of the target
+// pub fn accuracy(network: &mut Network, inputs: Vec<Vec<f64>>, targets: Vec<Vec<f64>>) -> f64 {
+//     let mut correct = 0;
+//     for i in 0..inputs.len() {
+//         let output = network.feed_forward(inputs[i].to_owned());
+//         if (output[0] - targets[i][0]).abs() < 0.05 {
+//             correct += 1;
+//         }
+//     }
+//     correct as f64 / inputs.len() as f64
+// }
+
+//Categorical Cross-Entropy Loss
+// pub fn loss(network: &mut Network, inputs: Vec<Vec<f64>>, targets: Vec<Vec<f64>>) -> f64 {
+// 	let mut loss = 0.0;
+// 	for i in 0..inputs.len() {
+// 		let output = network.feed_forward(inputs[i].to_owned());
+// 		for j in 0..output.len() {
+// 			loss += targets[i][j] * output[j].ln();
+// 		}
+// 	}
+// 	-loss / inputs.len() as f64
+// }
+
+// Catagorical Cross-Entropy Loss which accounts for 0 probabilities (avoiding a multiply by 0 error)
+// clip the output to be between 0.000000001 and 0.999999999
+pub fn loss(network: &mut Network, inputs: Vec<Vec<f64>>, targets: Vec<Vec<f64>>) -> f64 {
+	let mut loss = 0.0;
+	for i in 0..inputs.len() {
+		let output = network.feed_forward(inputs[i].to_owned());
+		for j in 0..output.len() {
+			let clipped = output[j].max(0.000000001).min(0.999999999);
+			loss += targets[i][j] * clipped.ln();
+		}
+	}
+	-loss / inputs.len() as f64
+}
+
+// single loss for each individual output neuron given Vec<output> and Vec<target>
+pub fn loss_single(outputs: Vec<f64>, targets: Vec<f64>) -> Vec<f64> {
+	let mut loss = vec![];
+	for i in 0..outputs.len() {
+		let clipped = outputs[i].max(0.000000001).min(0.999999999);
+		loss.push(-(targets[i] * clipped.ln()));
+	}
+	loss
 }

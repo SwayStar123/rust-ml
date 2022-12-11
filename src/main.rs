@@ -3,7 +3,7 @@ use rand::distributions::Uniform;
 
 pub mod lib;
 
-use lib::{activations::SIGMOID, network::{accuracy, Network},};
+use lib::{activations::SIGMOID, network::{loss, Network},};
 
 // // Makes a dataset of random points in a circle with radius r, and returns a vector of tuples of the form (vector of x and y coordinates, 0 or 1 depending on whether the point is inside the circle or not)
 // pub fn circle_dataset(r: f64, num_samples: u64) -> Vec<(Vec<f64>, Vec<f64>)> {
@@ -31,6 +31,11 @@ pub fn circle_dataset(r: f64, num_samples: u64) -> (Vec<Vec<f64>>, Vec<Vec<f64>>
     (inputs, targets)
 }
 
+// OCR MNIST dataset
+// pub fn mnist_dataset() -> (Vec<Vec<f64>>, Vec<Vec<f64>>) {
+//     // obtain the images and labels from the mnist dataset
+
+
 fn main() {
     let (inputs, targets) = circle_dataset(5.0, 100000);
     let (test_inputs, test_targets) = circle_dataset(5.0, 1000);
@@ -38,11 +43,11 @@ fn main() {
     let mut network = Network::new(vec![2, 20, 20, 2], 0.05, SIGMOID);
 
     // print the accuracy before trainig
-    println!("Accuracy before training: {}", accuracy(&mut network, test_inputs.to_owned(), test_targets.to_owned()));
+    println!("Loss before training: {}", loss(&mut network, test_inputs.to_owned(), test_targets.to_owned()));
 
     network.train(inputs, targets, 100);
 
     // print the accuracy after training    
-    println!("Accuracy after training: {}", accuracy(&mut network, test_inputs.to_owned(), test_targets.to_owned()));
+    println!("Loss after training: {}", loss(&mut network, test_inputs.to_owned(), test_targets.to_owned()));
 }
 
