@@ -1,9 +1,9 @@
 use rand::{thread_rng, Rng};
 use rand::distributions::Uniform;
 
-pub mod lib;
+pub mod nn;
 
-use lib::{activations::SIGMOID, network::{loss, Network},};
+use nn::{activations::SIGMOID, network::{loss, Network},};
 
 // // Makes a dataset of random points in a circle with radius r, and returns a vector of tuples of the form (vector of x and y coordinates, 0 or 1 depending on whether the point is inside the circle or not)
 // pub fn circle_dataset(r: f64, num_samples: u64) -> Vec<(Vec<f64>, Vec<f64>)> {
@@ -40,7 +40,7 @@ fn main() {
     let (inputs, targets) = circle_dataset(5.0, 100000);
     let (test_inputs, test_targets) = circle_dataset(5.0, 1000);
 
-    let mut network = Network::new(vec![2, 20, 20, 2], 0.05, SIGMOID);
+    let mut network = Network::new(vec![2, 20, 20, 2], 0.5, SIGMOID);
 
     // print the accuracy before trainig
     println!("Loss before training: {}", loss(&mut network, test_inputs.to_owned(), test_targets.to_owned()));
