@@ -40,7 +40,7 @@ impl Matrix {
 
 	pub fn multiply(&mut self, other: &Matrix) -> Matrix {
 		if self.cols != other.rows {
-			panic!("Attempted to multiply by matrix of incorrect dimensions");
+			panic!("Attempted to multiply by matrix of incorrect dimensions. Self is {}x{}, Other is {}x{}", self.rows, self.cols, other.rows, other.cols);
 		}
 
 		let mut res = Matrix::zeros(self.rows, other.cols);
@@ -61,7 +61,7 @@ impl Matrix {
 
 	pub fn add(&mut self, other: &Matrix) -> Matrix {
 		if self.rows != other.rows || self.cols != other.cols {
-			panic!("Attempted to add matrix of incorrect dimensions");
+			panic!("Attempted to add matrix of incorrect dimensions. Self is {}x{}, Other is {}x{}", self.rows, self.cols, other.rows, other.cols);
 		}
 
 		let mut res = Matrix::zeros(self.rows, self.cols);
@@ -77,7 +77,7 @@ impl Matrix {
 
 	pub fn dot_multiply(&mut self, other: &Matrix) -> Matrix {
 		if self.rows != other.rows || self.cols != other.cols {
-			panic!("Attempted to dot multiply by matrix of incorrect dimensions");
+			panic!("Attempted to dot multiply by matrix of incorrect dimensions. Self is {}x{}, other is {}x{}", self.rows, self.cols, other.rows, other.cols);
 		}
 
 		let mut res = Matrix::zeros(self.rows, self.cols);
@@ -93,7 +93,7 @@ impl Matrix {
 
 	pub fn subtract(&mut self, other: &Matrix) -> Matrix {
 		if self.rows != other.rows || self.cols != other.cols {
-			panic!("Attempted to subtract matrix of incorrect dimensions");
+			panic!("Attempted to subtract matrix of incorrect dimensions. Self is {}x{}, other is {}x{}", self.rows, self.cols, other.rows, other.cols);
 		}
 
 		let mut res = Matrix::zeros(self.rows, self.cols);

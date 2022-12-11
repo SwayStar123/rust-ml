@@ -63,7 +63,7 @@ impl Network<'_> {
 			self.data.push(current.clone());
 		}
 
-		current.data[0].to_owned()
+		current.transpose().data[0].to_owned()
 	}
 
 	pub fn back_propogate(&mut self, outputs: Vec<f64>, targets: Vec<f64>) {
@@ -72,8 +72,8 @@ impl Network<'_> {
 		}
 
 		let mut parsed = Matrix::from(vec![outputs]);
-		let mut errors = Matrix::from(vec![targets]).subtract(&parsed);
-		let mut gradients = parsed.map(self.activation.derivative);
+		let mut errors = Matrix::from(vec![targets]).subtract(&parsed).transpose();
+		let mut gradients = parsed.map(self.activation.derivative).transpose();
 
 		for i in (0..self.layers.len() - 1).rev() {
 			gradients = gradients
@@ -92,6 +92,12 @@ impl Network<'_> {
 		for i in 1..=epochs {
 			if epochs < 100 || i % (epochs / 100) == 0 {
 				println!("Epoch {} of {}", i, epochs);
+				// print accuracy
+				let mut i = inputs.clone();
+				i.truncate(50);
+				let mut t = targets.clone();
+				t.truncate(50);
+				println!("Accuracy: {}", accuracy(self, i, t))
 			}
 			for j in 0..inputs.len() {
 				let outputs = self.feed_forward(inputs[j].clone());
@@ -131,4 +137,16 @@ impl Network<'_> {
 		self.weights = weights;
 		self.biases = biases;
 	}
+}
+
+// find accuracy as within 0.1 of the target
+pub fn accuracy(network: &mut Network, inputs: Vec<Vec<f64>>, targets: Vec<Vec<f64>>) -> f64 {
+    let mut correct = 0;
+    for i in 0..inputs.len() {
+        let output = network.feed_forward(inputs[i].to_owned());
+        if (output[0] - targets[i][0]).abs() < 0.1 {
+            correct += 1;
+        }
+    }
+    correct as f64 / inputs.len() as f64
 }
