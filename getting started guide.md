@@ -13,6 +13,8 @@ Rust - https://www.rust-lang.org
     * sigmoid - logistic - regardless of the input - it always outputs a value between 0 and 1 in the form of an S-shape between 0 and 1 with the vertical or middle of the “S” at 0.5.
 * [usize](https://doc.rust-lang.org/std/primitive.usize.html) - The pointer-sized unsigned integer type. The size of this primitive is how many bytes it takes to reference any location in memory. For example, on a 32 bit target, this is 4 bytes and on a 64 bit target, this is 8 bytes.
 * [smart contract](https://www.ibm.com/topics/smart-contracts) - programs stored on a blockchain that run when predetermined conditions are met. They typically are used to automate the execution of an agreement so that all participants can be immediately certain of the outcome, without any intermediary’s involvement or time loss. They can also automate a workflow, triggering the next action when conditions are met.
+* [namespace](https://techvidvan.com/tutorials/cpp-namespaces/) - places a bunch of funct's into one name
+  * reason - prevents name collisions with multiple libraries -> handle applications
 
 ## Reading - learn about neural networks
 * [A Brief Introduction to Neural Networks](https://archive.org/details/NeuralNetworksIntro)
