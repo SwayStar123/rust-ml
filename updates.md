@@ -6,6 +6,10 @@
 * lost hope but then was reassured because Brittany decided to help out
 * shared the [repository's link](https://github.com/SwayStar123/neural-nets-from-scratch-rust)
 
+## 12-12-22 (Sway)
+* Threw out code that Brittany raised suspicions on
+* added in https://github.com/SwayStar123/rust-ml
+
 ## 12-13-22 
 (Sway)
 * builds a readme file
