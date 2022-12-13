@@ -3,7 +3,7 @@ Sway is a new computer language - a neural network one built from scratch withou
 
 ## Background
 * This is an orginal repository forked from mathletedev/rust-ml (i.e. Rust's repo - https://github.com/mathletedev/rust-ml). 
-* This is an unpaid, personal project created by the Discord user Sway#0727 - a vegan developer (self-proclaimed 'vegan pilled')
+* This is an unpaid, personal project created by the Discord user Sway#0727 - a vegan developer
   * while this project isn't specifically about veganism - it's used to give vegans skills needed to produce vegan projects later down to the line.
     * i.e - will be used for activism one day
       * the fundamental framework computing language to build with and from.
