@@ -16,6 +16,7 @@
 * invites Brittany to build the server
 * organizes server files 
   * -> - look cleaner
+* feels the code might've gone downhill after creating the namespace statements
 
 
 (Brittany)
