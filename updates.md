@@ -12,6 +12,8 @@
 * invites Brittany to build the server
 * organizes server files 
   * -> - look cleaner
+
+
 (Brittany)
 * edits readme.md
 * creates - new files
