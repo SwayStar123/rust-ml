@@ -19,3 +19,4 @@ Rust - https://www.rust-lang.org
 ## Reading - learn about neural networks
 * [A Brief Introduction to Neural Networks](https://archive.org/details/NeuralNetworksIntro)
   * [e-reader format](https://archive.org/details/Neuralnetworksereader)
+* [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/chap1.html)
