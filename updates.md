@@ -17,6 +17,9 @@
 * organizes server files 
   * -> - look cleaner
 * feels the code might've gone downhill after creating the namespace statements
+  * removed the softmax part
+    * due to feeling - it's the sigmoid derivation - messing it uprea
+    * realizes the problem might be elsewhere
 
 
 (Brittany)
