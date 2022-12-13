@@ -20,6 +20,7 @@
   * removed the softmax part
     * due to feeling - it's the sigmoid derivation - messing it uprea
     * realizes the problem might be elsewhere
+* added in matrix tests (i.e. basic testing - on matrices)
 
 
 (Brittany)
