@@ -1,5 +1,5 @@
 # Getting Started Guide
-Here's the tools to give you everything you need to know to get started on this project. This is continued from the the [README](https://github.com/SwayStar123/rust-ml/blob/c52d7f425df5ddedbd1b7723e7035de029d5e0d4/README.md).
+Continued from the [README](https://github.com/SwayStar123/rust-ml/blob/c52d7f425df5ddedbd1b7723e7035de029d5e0d4/README.md).
 
 ## Software
 Rust - https://www.rust-lang.org
