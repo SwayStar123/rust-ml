@@ -1,4 +1,4 @@
-use rand::{thread_rng, Rng};
+use rand::{thread_rng, prelude::Distribution};
 use std::fmt::{Debug, Formatter, Result};
 
 #[derive(Clone)]
@@ -21,9 +21,17 @@ impl Matrix {
 		let mut rng = thread_rng();
 
 		let mut res = Matrix::zeros(rows, cols);
+		// for i in 0..rows {
+		// 	for j in 0..cols {
+		// 		res.data[i][j] = rng.gen::<f64>() * 2.0 - 1.0;
+		// 	}
+		// }
+
+		// use Uniform
+		let range = rand::distributions::Uniform::from(-1.0..1.0);
 		for i in 0..rows {
 			for j in 0..cols {
-				res.data[i][j] = rng.gen::<f64>() * 2.0 - 1.0;
+				res.data[i][j] = range.sample(&mut rng);
 			}
 		}
 

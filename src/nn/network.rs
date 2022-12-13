@@ -63,7 +63,22 @@ impl Network<'_> {
 			self.data.push(current.clone());
 		}
 
-		current.transpose().data[0].to_owned()
+		// current.transpose().data[0].to_owned()
+
+		// softmax output for the last layer
+		// current = self.weights[self.layers.len() - 2]
+		// 	.multiply(&current)
+		// 	.add(&self.biases[self.layers.len() - 2]);
+		// // find max to avoid overflow
+		// let max = current.transpose().data[0].iter().fold(f64::MIN, |acc, x| acc.max(*x));
+
+		// current = current.map(&|x| (x - max).exp());
+		// let sum = current.transpose().data[0].iter().fold(0.0, |acc, x| acc + x);
+
+		// current = current.map(&|x| x / sum);
+		// self.data.push(current.clone());
+	
+		current.transpose().data[0].to_owned()		
 	}
 
 	pub fn back_propogate(&mut self, outputs: Vec<f64>, targets: Vec<f64>) {
@@ -72,8 +87,8 @@ impl Network<'_> {
 		}
 
 		let parsed = Matrix::from(vec![outputs.clone()]);
-		// let mut errors = Matrix::from(vec![targets]).subtract(&parsed).transpose();
-		let mut errors = Matrix::from(vec![loss_single(outputs, targets)]).transpose();
+		let mut errors = Matrix::from(vec![targets]).subtract(&parsed).transpose();
+		// let mut errors = Matrix::from(vec![loss_single(outputs, targets)]).transpose();
 		let mut gradients = parsed.map(self.activation.derivative).transpose();
 
 		for i in (0..self.layers.len() - 1).rev() {
@@ -187,3 +202,19 @@ pub fn loss_single(outputs: Vec<f64>, targets: Vec<f64>) -> Vec<f64> {
 	}
 	loss
 }
+
+// derivative of the softmax function
+// current = self.weights[self.layers.len() - 2]
+// 			.multiply(&current)
+// 			.add(&self.biases[self.layers.len() - 2]);
+// 		// find max to avoid overflow
+// 		let max = current.transpose().data[0].iter().fold(f64::MIN, |acc, x| acc.max(*x));
+
+// 		current = current.map(&|x| (x - max).exp());
+// 		let sum = current.transpose().data[0].iter().fold(0.0, |acc, x| acc + x);
+
+// 		current = current.map(&|x| x / sum);
+// 		self.data.push(current.clone());
+	
+// 		current.transpose().data[0].to_owned()	
+// derivative for the above

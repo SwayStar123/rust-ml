@@ -16,21 +16,15 @@ fn sigmoid(x: f64) -> f64 {
 }
 pub const SIGMOID: Activation = Activation {
 	function: &|x| sigmoid(x),
-	derivative: &|x| x * (1.0 - x),
+	derivative: &|x| sigmoid(x) * (1.0 - sigmoid(x)),
 };
 
 pub const TANH: Activation = Activation {
 	function: &|x| x.tanh(),
-	derivative: &|x| 1.0 - (x.powi(2)),
+	derivative: &|x| 1.0 - x.powi(2),
 };
 
 pub const RELU: Activation = Activation {
 	function: &|x| x.max(0.0),
 	derivative: &|x| if x > 0.0 { 1.0 } else { 0.0 },
 };
-
-// fn softmax()
-
-// pub const SOFTMAX: Activation = Activation {
-// 	function: &|
-// }

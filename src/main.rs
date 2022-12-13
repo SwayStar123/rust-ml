@@ -2,6 +2,7 @@ use rand::{thread_rng, Rng};
 use rand::distributions::Uniform;
 
 pub mod nn;
+pub mod harness;
 
 use nn::{activations::SIGMOID, network::{loss, Network},};
 
@@ -37,17 +38,42 @@ pub fn circle_dataset(r: f64, num_samples: u64) -> (Vec<Vec<f64>>, Vec<Vec<f64>>
 
 
 fn main() {
-    let (inputs, targets) = circle_dataset(5.0, 100000);
-    let (test_inputs, test_targets) = circle_dataset(5.0, 1000);
+    // let mnist = Mnist::new(r"data\");
+    // let inputs: Vec<Vec<f64>> = mnist.train_data.iter().map(|x| x.iter().map(|y| *y as f64).collect()).collect();
+    // let targets: Vec<Vec<f64>> = mnist.train_labels.iter().map(|x| {
+    //     let mut vec = vec![0.0; 10];
+    //     vec[*x as usize] = 1.0;
+    //     vec
+    // }).collect();
 
-    let mut network = Network::new(vec![2, 20, 20, 2], 0.5, SIGMOID);
+    // let test_inputs: Vec<Vec<f64>> = mnist.test_data.iter().map(|x| x.iter().map(|y| *y as f64).collect()).collect();
+    // let test_targets: Vec<Vec<f64>> = mnist.test_labels.iter().map(|x| {
+    //     let mut vec = vec![0.0; 10];
+    //     vec[*x as usize] = 1.0;
+    //     vec
+    // }).collect();
+    let (inputs, targets) = circle_dataset(5.0, 100000);
+    let (test_inputs, test_targets) = circle_dataset(5.0, 50);
+
+    let mut network = Network::new(vec![2, 20, 20, 2], 0.05, SIGMOID);
 
     // print the accuracy before trainig
     println!("Loss before training: {}", loss(&mut network, test_inputs.to_owned(), test_targets.to_owned()));
 
-    network.train(inputs, targets, 100);
+    network.train(inputs.clone(), targets, 10);
 
     // print the accuracy after training    
     println!("Loss after training: {}", loss(&mut network, test_inputs.to_owned(), test_targets.to_owned()));
+
+    // print the outputs
+    // let o = network.feed_forward(inputs[0].to_owned());
+    for i in 0..test_inputs.len() {
+        println!("{:?}", test_inputs[i]);
+        let o = network.feed_forward(test_inputs[i].to_owned());
+        println!("Output: {:?}", o);
+    }
+    // println!("Output: {:?}", o);
+    //save the nn
+    network.save("nn.json".to_string());
 }
 
