@@ -13,6 +13,7 @@ Sway is a new computer language - a neural network one built from scratch withou
 * https://datascience.stackexchange.com/questions/75855/what-types-of-matrix-multiplication-are-used-in-machine-learning-when-are-they
 
 ## Associated files
+These files (located within this repository) are for further reading to learn more about this project (i.e. a continuation of this readme file):
 * getting started guide.md
 * backlog.md
 * updates.md
