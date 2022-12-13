@@ -10,6 +10,8 @@ This is a work in progress with struggles while building the code up due to the 
 ### 12-10-22
 (Sway) - no idea what's wrong - but something's wrong
 * guessing - backwards propagation steps
+
+
 (Brittany) - notices the server has no readme file
 
 ### 12-13-22 (Sway)
