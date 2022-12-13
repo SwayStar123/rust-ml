@@ -23,6 +23,15 @@ raised concerns about the code
   * Vec<(Vec<f64>, usize)>
   * Uniform::new
   * dataset.iter().cloned().map(|(input, answer)| (input, answer))
-
+ 
 ### 12-13-22 (Sway)
+thinks there may be a training issue in newly created https://github.com/SwayStar123/rust-ml/blob/main/src/nn/network.rs
+* esp due to - using softmax for the output layer
+  * doesn't know how to make derivative of it
+
+### 12-13-22 
+(Sway)
 Some of the Sway code is Rust waiting to be translated to Sway
+
+ (Britttany)
+ believes there's issues in the middle of matrix.rs
