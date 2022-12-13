@@ -18,6 +18,8 @@ Rust - https://www.rust-lang.org
         * source - https://machinelearningmastery.com/softmax-activation-function-with-python
 * usize - The pointer-sized unsigned integer type. The size of this primitive is how many bytes it takes to reference any location in memory. For example, on a 32 bit target, this is 4 bytes and on a 64 bit target, this is 8 bytes.
   * source - https://doc.rust-lang.org/std/primitive.usize.html
+* smart contract - programs stored on a blockchain that run when predetermined conditions are met. They typically are used to automate the execution of an agreement so that all participants can be immediately certain of the outcome, without any intermediary’s involvement or time loss. They can also automate a workflow, triggering the next action when conditions are met.
+  * source - https://www.ibm.com/topics/smart-contracts
 
 ## Reading - learn about neural networks
 * A Brief Introduction to Neural Networks - https://archive.org/details/NeuralNetworksIntro
