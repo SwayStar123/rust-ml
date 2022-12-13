@@ -9,7 +9,10 @@ This is a work in progress with struggles while building the code up due to the 
 ## Timeline
 ### 12-10-22
 (Sway) - no idea what's wrong - but something's wrong
-* guessing - backwards propagation steps
+* guessing
+  * backwards propagation steps
+  * stuff like Vec<Vec<T>>> is overcomplicating the code
+    * believes using Matrix struct or something like that would clean it up
 
 
 (Brittany) - notices the server has no readme file
