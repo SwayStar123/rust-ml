@@ -11,3 +11,6 @@ This is a work in progress with struggles while building the code up due to the 
 (Sway) - no idea what's wrong - but something's wrong
 * guessing - backwards propagation steps
 (Brittany) - notices the server has no readme file
+
+### 12-13-22 (Sway)
+Some of the Sway code is Rust waiting to be translated to Sway
