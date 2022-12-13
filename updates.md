@@ -29,3 +29,4 @@
   * getting started guide
   * backlog
   * updates
+* caught up on all the documentation
