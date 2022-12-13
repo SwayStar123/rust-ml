@@ -1,3 +1,6 @@
+# Getting Started Guide
+Here's the tools to give you everything you need to know to get started on this project. This is continued from the the Read Me file (readme.md).
+
 ## Terminology
 * backward propagation
   * other name - backpropagation
