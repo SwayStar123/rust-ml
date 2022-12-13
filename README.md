@@ -1,5 +1,5 @@
 # Sway - smart contract language
-Sway is a new computer language based off of [Rust](https://www.rust-lang.org/) (forked from [mathletedev/rust-ml](https://github.com/mathletedev/rust-ml). This repository uses Sway to build a neural network from scratch without libraries to demonstration its capabilities.
+Sway is a new computer language based off of [Rust](https://www.rust-lang.org/) - forked from [mathletedev/rust-ml](https://github.com/mathletedev/rust-ml). This repository uses Sway to build a neural network from scratch without libraries to demonstration its capabilities.
 
 ## Background - personal project
 * Non-funded
