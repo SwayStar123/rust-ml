@@ -1,3 +1,6 @@
+# Neural Network Project using Rust
+A neural network built from scratch without libraries.
+
 ## Citations
 
 https://medium.com/coinmonks/representing-neural-network-with-vectors-and-matrices-c6b0e64db9fb
