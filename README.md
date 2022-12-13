@@ -1,12 +1,12 @@
-# Sway - Neural Network Project using Rust
-Sway is a new computer language - a neural network one built from scratch without libraries. It's built off the computer language Rust. This project's purpose is a demonstration of capabilities.
+# Sway - smart contract language
+Sway is a new computer language based off of [Rust](https://www.rust-lang.org/) (forked from [mathletedev/rust-ml](https://github.com/mathletedev/rust-ml). This repository uses Sway to build a neural network from scratch without libraries to demonstration its capabilities.
 
-## Background
-* This is an orginal repository forked from mathletedev/rust-ml (i.e. Rust's repo - https://github.com/mathletedev/rust-ml). 
-* This is an unpaid, personal project created by the Discord user Sway#0727 - a vegan developer
-  * while this project isn't specifically about veganism - it's used to give vegans skills needed to produce vegan projects later down to the line.
-    * i.e - will be used for activism one day
-      * the fundamental framework computing language to build with and from.
+## Background - personal project
+* Non-funded
+* created by the Discord user Sway#0727 - a vegan developer
+* while this project isn't specifically about veganism - it's used to give vegans skills needed to produce vegan projects later down to the line.
+  * i.e - will be used for activism one day
+    * the fundamental framework computing language to build with and from.
 
 ## Citations
 * https://medium.com/coinmonks/representing-neural-network-with-vectors-and-matrices-c6b0e64db9fb
