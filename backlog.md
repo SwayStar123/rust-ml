@@ -33,6 +33,8 @@ thinks there may be a training issue in newly created https://github.com/SwaySta
 (Sway)
 Some of the Sway code is Rust waiting to be translated to Sway
 
- (Britttany)
- believes there's issues in the middle of matrix.rs
- isn't able to continue easily without a worklog
+
+(Britttany)
+* believes there's issues in the middle of matrix.rs
+* isn't able to continue easily without a worklog
+* needs to read up on Rust
